@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sécurité — SafeCoon</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+  :root{--nuit:#0E1B2A;--carte:#152436;--bord:#22344A;--laiton:#D8B45F;--texte:#E9EFF6;--muted:#9DB0C4;--ok:#4ADE80;--danger:#F0808E}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+       color:var(--texte);background:var(--nuit);line-height:1.65}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  a{color:var(--laiton)}
+  header{border-bottom:1px solid var(--bord)}
+  header .wrap{display:flex;align-items:center;gap:12px;height:64px}
+  header img{width:34px;height:34px;border-radius:9px}
+  header .brand{font-weight:700;font-size:18px;text-decoration:none;color:var(--texte)}
+  header .retour{margin-left:auto;font-size:14px;font-weight:600;text-decoration:none}
+  h1{font-family:Spectral,Georgia,serif;font-size:34px;margin:44px 0 8px;letter-spacing:-.01em}
+  .maj{color:var(--muted);font-size:14px;margin-bottom:30px}
+  h2{font-family:Spectral,Georgia,serif;font-size:22px;margin:34px 0 10px}
+  h3{font-size:16px;margin:22px 0 6px}
+  p,li{color:#CBD8E6;font-size:15.5px}
+  p{margin:0 0 13px}
+  ul{margin:0 0 14px 20px}
+  li{margin-bottom:6px}
+  .encadre{background:var(--carte);border:1px solid var(--bord);border-left:4px solid var(--laiton);
+           border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0}
+  .encadre.rouge{border-left-color:var(--danger)}
+  .encadre.vert{border-left-color:var(--ok)}
+  .encadre p:last-child{margin-bottom:0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;
+        background:var(--carte);border:1px solid var(--bord);border-radius:12px;overflow:hidden}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--bord);vertical-align:top}
+  th{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;color:var(--laiton)}
+  footer{border-top:1px solid var(--bord);margin-top:56px;padding:30px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="assets/icon.png" alt=""><a class="brand" href="index.html">SafeCoon</a>
+  <a class="retour" href="index.html">← Retour</a>
+</div></header>
+<div class="wrap">
+<h1>Note technique de sécurité</h1>
+<p class="maj">Version du 8 septembre 2026 · SafeCoon 0.3.0 (en développement)</p>
+
+<p>Cette page dit comment SafeCoon protège vos documents, <b>et ce qu'il ne protège pas</b>. Une promesse de confidentialité qui n'énumère pas ses limites n'est pas vérifiable.</p>
+
+<h2>1. Le principe</h2>
+<p>Vos documents sont chiffrés sur votre appareil, avec une clé qui se déduit de votre mot de passe. Ce mot de passe n'est stocké nulle part — ni chez nous, ni sur l'appareil : seule une clé <i>dérivée</i> sert à ouvrir le coffre, et elle disparaît de la mémoire au verrouillage.</p>
+
+<h2>2. Les algorithmes utilisés</h2>
+<p>Aucun n'est de notre invention. Tous sont publics, standardisés et analysés depuis des années.</p>
+<table>
+  <tr><th>Usage</th><th>Algorithme</th></tr>
+  <tr><td>Dérivation depuis le mot de passe</td><td><b>Argon2id</b> — vainqueur du concours <i>Password Hashing Competition</i></td></tr>
+  <tr><td>Chiffrement des documents et des fiches</td><td><b>XChaCha20-Poly1305</b></td></tr>
+  <tr><td>Fichiers volumineux</td><td>Construction <b>STREAM</b>, par blocs de 1 Mio — la même que celle de l'outil <code>age</code></td></tr>
+  <tr><td>Partage d'une clé vers un appareil</td><td><b>X25519</b> (boîte scellée)</td></tr>
+  <tr><td>Signatures</td><td><b>Ed25519</b></td></tr>
+  <tr><td>Empreintes et codes d'intégrité</td><td><b>BLAKE2b</b></td></tr>
+  <tr><td>Code de récupération</td><td><b>12 mots</b> issus de la liste française <b>BIP-39</b>, avec somme de contrôle</td></tr>
+</table>
+<p>La bibliothèque employée est <b>libsodium</b>, dans son implémentation native sur téléphone.</p>
+
+<h2>3. La hiérarchie des clés</h2>
+<p>Elle existe pour une raison pratique : changer de mot de passe, ou retirer l'accès à un appareil, ne doit pas obliger à re-chiffrer tous vos documents.</p>
+<ul>
+  <li>Votre <b>mot de passe</b> produit, via Argon2id, une clé qui ne sert qu'à ouvrir la suivante.</li>
+  <li>Une <b>clé maîtresse</b>, tirée au hasard, est scellée trois fois : par votre mot de passe, par votre code de récupération, et pour chaque appareil que vous autorisez.</li>
+  <li>Une <b>clé de coffre</b> protège les clés des documents.</li>
+  <li>Chaque <b>version de fichier</b> a sa propre clé, tirée au hasard.</li>
+</ul>
+<p>Conséquence concrète : <b>changer de mot de passe prend quelques millisecondes</b> et ne touche aucun document.</p>
+
+<h2>4. Ce que nous ne pouvons pas faire</h2>
+<div class="encadre rouge">
+  <p><b>Nous ne pouvons pas récupérer vos documents si vous perdez à la fois votre mot de passe et votre code de récupération.</b> Ce n'est pas une politique commerciale, c'est une conséquence mathématique du chiffrement : il n'existe aucune porte dérobée, aucune clé de secours, aucune procédure d'exception.</p>
+  <p>C'est pourquoi l'application vous fait noter votre code de récupération, puis vous en redemande trois mots au hasard, <b>avant</b> de vous laisser ranger le premier document. Ce passage ne peut pas être sauté.</p>
+</div>
+
+<h2>5. Contre quoi cela protège, et contre quoi non</h2>
+<table>
+  <tr><th>Situation</th><th>Protection</th></tr>
+  <tr><td>Téléphone perdu ou volé, éteint ou verrouillé</td><td><b>Oui.</b> Sans votre mot de passe, l'extraction du contenu ne donne que des octets sans signification.</td></tr>
+  <tr><td>Quelqu'un attrape votre téléphone déverrouillé</td><td><b>Oui</b>, si le coffre s'est reverrouillé : verrou propre à l'application, automatique après un délai en arrière-plan que vous réglez.</td></tr>
+  <tr><td>Sauvegarde automatique du système vers un cloud</td><td><b>Oui.</b> Le coffre est exclu des sauvegardes automatiques de l'appareil.</td></tr>
+  <tr><td>Mot de passe faible ou déjà vu ailleurs</td><td><b>Partiellement.</b> Argon2id rend les essais coûteux, et l'application refuse les mots de passe trop courts ou trop courants — mais un mot de passe deviné reste un mot de passe valide.</td></tr>
+  <tr><td>Téléphone compromis par un logiciel espion actif pendant que vous ouvrez le coffre</td><td><b>Non.</b> Aucune application ne s'en protège. Prétendre le contraire serait malhonnête.</td></tr>
+  <tr><td>Quelqu'un qui connaît votre mot de passe</td><td><b>Non.</b> Il devient vous.</td></tr>
+</table>
+
+<h2>6. Ce qui reste visible malgré le chiffrement</h2>
+<p>Aujourd'hui, aucune donnée ne quitte votre appareil : la question ne se pose donc pas encore. Lorsqu'une synchronisation existera, un serveur pourra malgré tout observer certaines <b>formes</b>, jamais le fond :</p>
+<ul>
+  <li>le nombre de documents et la taille approximative de chacun ;</li>
+  <li>les dates d'ajout et de modification, donc votre rythme d'utilisation ;</li>
+  <li>le nombre d'appareils, et l'adresse IP de connexion.</li>
+</ul>
+<p>Il ne pourra pas connaître un nom de fichier, un fournisseur, un montant, une catégorie ni une date de garantie. Ces limites seront réaffirmées ici quand la fonction existera.</p>
+
+<h2>7. Intelligence artificielle</h2>
+<p>La lecture des documents se fait sur l'appareil. Une aide distante restera <b>facultative</b> et ne recevra jamais d'image ni de fichier : uniquement du texte, tronqué, expurgé des IBAN et numéros sensibles, et affiché avant l'envoi.</p>
+
+<h2>8. Un mot sur la vérification</h2>
+<p>Le développement s'appuie sur des tests automatiques exécutés à chaque modification, dont des <b>vecteurs cryptographiques figés</b> : un document chiffré aujourd'hui doit rester déchiffrable par toutes les versions futures. Nous vérifions aussi qu'un fichier chiffré sur ordinateur s'ouvre sur téléphone à l'octet près.</p>
+<div class="encadre">
+  <p>SafeCoon n'a pas encore fait l'objet d'un audit de sécurité indépendant, et cette page ne prétend pas en tenir lieu. Si vous repérez un problème, écrivez à <a href="mailto:jdviallat@gmail.com">jdviallat@gmail.com</a> : les signalements de sécurité sont traités en priorité.</p>
+</div>
+
+<h2>9. Ce que SafeCoon n'est pas</h2>
+<p>Ce n'est pas un coffre-fort à valeur probante au sens de la norme NF Z42-020, ce n'est pas un service d'archivage légal, et cela ne remplace pas un notaire. C'est une application qui range vos papiers et vous aide à les retrouver.</p>
+</div>
+<footer><div class="wrap">SafeCoon — par Bengacoon · <a href="mailto:jdviallat@gmail.com">jdviallat@gmail.com</a></div></footer>
+</body>
+</html>

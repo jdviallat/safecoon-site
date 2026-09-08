@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidentialité — SafeCoon</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+  :root{--nuit:#0E1B2A;--carte:#152436;--bord:#22344A;--laiton:#D8B45F;--texte:#E9EFF6;--muted:#9DB0C4;--ok:#4ADE80;--danger:#F0808E}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+       color:var(--texte);background:var(--nuit);line-height:1.65}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  a{color:var(--laiton)}
+  header{border-bottom:1px solid var(--bord)}
+  header .wrap{display:flex;align-items:center;gap:12px;height:64px}
+  header img{width:34px;height:34px;border-radius:9px}
+  header .brand{font-weight:700;font-size:18px;text-decoration:none;color:var(--texte)}
+  header .retour{margin-left:auto;font-size:14px;font-weight:600;text-decoration:none}
+  h1{font-family:Spectral,Georgia,serif;font-size:34px;margin:44px 0 8px;letter-spacing:-.01em}
+  .maj{color:var(--muted);font-size:14px;margin-bottom:30px}
+  h2{font-family:Spectral,Georgia,serif;font-size:22px;margin:34px 0 10px}
+  h3{font-size:16px;margin:22px 0 6px}
+  p,li{color:#CBD8E6;font-size:15.5px}
+  p{margin:0 0 13px}
+  ul{margin:0 0 14px 20px}
+  li{margin-bottom:6px}
+  .encadre{background:var(--carte);border:1px solid var(--bord);border-left:4px solid var(--laiton);
+           border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0}
+  .encadre.rouge{border-left-color:var(--danger)}
+  .encadre.vert{border-left-color:var(--ok)}
+  .encadre p:last-child{margin-bottom:0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;
+        background:var(--carte);border:1px solid var(--bord);border-radius:12px;overflow:hidden}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--bord);vertical-align:top}
+  th{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;color:var(--laiton)}
+  footer{border-top:1px solid var(--bord);margin-top:56px;padding:30px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="assets/icon.png" alt=""><a class="brand" href="index.html">SafeCoon</a>
+  <a class="retour" href="index.html">← Retour</a>
+</div></header>
+<div class="wrap">
+<h1>Politique de confidentialité</h1>
+<p class="maj">Version du 8 septembre 2026 · applicable à l'application SafeCoon (Android et iOS) et à ce site.</p>
+
+<div class="encadre vert">
+  <p><b>En une phrase :</b> SafeCoon fonctionne sur votre appareil. Il n'y a ni compte, ni serveur, ni publicité, ni mesure d'audience. Nous ne recevons aucune de vos données, et nous n'avons aucun moyen technique de lire vos documents.</p>
+</div>
+
+<h2>1. Qui édite l'application</h2>
+<p>SafeCoon est édité par <b>Bengacoon</b> (Jean-David Viallat). Contact : <a href="mailto:jdviallat@gmail.com">jdviallat@gmail.com</a>.</p>
+
+<h2>2. Quelles données l'application traite</h2>
+<p>Toutes les données que vous confiez à SafeCoon restent <b>sur votre appareil</b>, dans l'espace privé de l'application :</p>
+<ul>
+  <li>les documents que vous photographiez ou importez, et leurs images ;</li>
+  <li>les informations extraites de ces documents (type, fournisseur, produit, dates, montants, références) ;</li>
+  <li>vos catégories, étiquettes, garanties, contrats et rappels ;</li>
+  <li>vos réglages (langue, thème, taille du texte, délai de verrouillage).</li>
+</ul>
+<p>Ces données sont <b>chiffrées</b> avec une clé dérivée de votre mot de passe. Nous n'en détenons aucune copie.</p>
+
+<h2>3. Ce que l'application ne fait pas</h2>
+<ul>
+  <li>Aucun compte, aucune inscription, aucune adresse e-mail demandée.</li>
+  <li>Aucune publicité, aucun traceur, aucun outil de mesure d'audience.</li>
+  <li>Aucune remontée de statistiques d'usage, même anonymes.</li>
+  <li>Aucun envoi automatique de vos documents où que ce soit.</li>
+  <li>Aucune revente, aucun partage à des tiers — il n'y a rien à revendre : nous n'avons rien.</li>
+</ul>
+
+<h2>4. Autorisations demandées</h2>
+<table>
+  <tr><th>Autorisation</th><th>Pourquoi</th><th>Quand</th></tr>
+  <tr><td>Appareil photo</td><td>Photographier un document ou scanner un code QR</td><td>Au premier usage du scanner</td></tr>
+  <tr><td>Photos et fichiers</td><td>Importer une image ou un PDF que vous choisissez</td><td>Au premier import</td></tr>
+  <tr><td>Notifications</td><td>Vous rappeler une garantie ou un préavis qui approche</td><td>À l'activation des rappels</td></tr>
+  <tr><td>Biométrie</td><td>Déverrouiller le coffre sans retaper le mot de passe</td><td>Si vous l'activez</td></tr>
+</table>
+<p>Chaque autorisation est demandée <b>au moment où elle sert</b>, jamais au lancement, et le refus n'empêche pas d'utiliser le reste de l'application.</p>
+
+<h2>5. Intelligence artificielle</h2>
+<p>SafeCoon lit vos documents <b>sur votre appareil</b> : la reconnaissance de texte et l'extraction des informations sont locales et fonctionnent sans réseau.</p>
+<p>Une aide par intelligence artificielle distante est prévue, <b>facultative et désactivée par défaut</b>. Si vous l'activez avec votre propre clé de fournisseur, alors et seulement alors :</p>
+<ul>
+  <li>seul du <b>texte</b> est transmis, jamais l'image ni le fichier ;</li>
+  <li>ce texte est tronqué, et les IBAN, numéros de carte et numéros de sécurité sociale en sont retirés avant l'envoi ;</li>
+  <li>l'application vous montre le texte exact avant de l'envoyer, et vous pouvez refuser ;</li>
+  <li>les échanges relèvent alors de la politique de confidentialité du fournisseur que vous avez choisi.</li>
+</ul>
+
+<h2>6. Sauvegardes et exports</h2>
+<p>Les sauvegardes et les exports que vous créez sont écrits <b>là où vous les rangez</b>. Une archive de sauvegarde est chiffrée ; un export PDF, CSV ou Excel destiné à être lu ailleurs ne l'est pas, par nature. Ce que vous en faites ensuite vous appartient, et sort de notre responsabilité.</p>
+
+<h2>7. Vos droits</h2>
+<p>Le RGPD vous donne des droits d'accès, de rectification, d'effacement et de portabilité. Ici, ils sont immédiats et ne nécessitent aucune démarche auprès de nous :</p>
+<ul>
+  <li><b>Accès et portabilité</b> : la fonction d'export produit l'intégralité de vos données dans des formats ouverts.</li>
+  <li><b>Rectification</b> : chaque fiche est modifiable dans l'application.</li>
+  <li><b>Effacement</b> : « Supprimer toutes les données » dans les réglages efface le coffre et son contenu. Désinstaller l'application supprime également tout.</li>
+</ul>
+<p>Nous ne pouvons pas exercer ces droits <i>à votre place</i>, pour une raison simple : nous n'avons pas vos données.</p>
+
+<h2>8. Enfants</h2>
+<p>SafeCoon n'est pas destiné aux personnes de moins de 16 ans.</p>
+
+<h2>9. Si un serveur apparaît un jour</h2>
+<p>Une synchronisation entre appareils est envisagée pour une version ultérieure. Elle sera <b>facultative</b>, et conçue de sorte que le serveur ne détienne que des données chiffrées qu'il ne peut pas lire. Cette page sera mise à jour <b>avant</b> qu'une telle fonction existe, jamais après.</p>
+
+<h2>10. Ce site</h2>
+<p>Ce site est hébergé par GitHub Pages (GitHub, Inc.). Il ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience. Votre choix de langue est conservé dans votre navigateur (<code>localStorage</code>) et ne quitte pas votre appareil. GitHub peut, comme tout hébergeur, journaliser les requêtes reçues à des fins techniques.</p>
+
+<h2>11. Modifications</h2>
+<p>Toute évolution de cette politique sera publiée sur cette page, avec sa date. Les versions antérieures restent consultables dans l'historique public du dépôt.</p>
+</div>
+<footer><div class="wrap">SafeCoon — par Bengacoon · <a href="mailto:jdviallat@gmail.com">jdviallat@gmail.com</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">SafeCoon — Votre coffre-fort numérique</title>
+<meta name="description" content="SafeCoon, par Bengacoon : photographiez une facture, l'application la comprend, la chiffre et la classe. Retrouvez vos papiers et vos garanties en une phrase." data-i18n="meta.desc" data-i18n-attr="content">
+<link rel="icon" href="assets/favicon.png">
+<meta property="og:title" content="SafeCoon — Votre coffre-fort numérique">
+<meta property="og:description" content="Vos papiers chiffrés sur votre appareil, et retrouvables en une phrase.">
+<meta property="og:image" content="assets/icon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --nuit:#0E1B2A; --nuit-2:#08131F; --carte:#152436; --bord:#22344A;
+    --laiton:#D8B45F; --laiton-2:#B08733;
+    --texte:#E9EFF6; --muted:#9DB0C4;
+    --ok:#4ADE80; --creme:#F6F7F9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--texte);background:var(--nuit);line-height:1.62;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:600;letter-spacing:-.01em}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(14,27,42,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--bord)}
+  header .wrap{display:flex;align-items:center;gap:12px;height:64px}
+  header img{width:36px;height:36px;border-radius:10px}
+  header .brand{font-weight:700;font-size:19px}
+  header .brand small{display:block;font-weight:600;font-size:11px;color:var(--muted);letter-spacing:.3px}
+  header nav{margin-left:auto;display:flex;gap:22px;font-size:14px;font-weight:600;align-items:center}
+  header nav a{color:var(--muted);text-decoration:none}
+  header nav a:hover{color:var(--laiton)}
+  select{background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-radius:8px;
+         padding:7px 9px;font-size:13px;font-family:inherit}
+  @media(max-width:720px){header nav a{display:none}}
+
+  .hero{background:linear-gradient(168deg,#16283D 0%,var(--nuit) 58%,var(--nuit-2) 100%);text-align:center;padding:72px 0 80px}
+  .hero img.logo{width:104px;height:104px;border-radius:26px;box-shadow:0 14px 40px rgba(0,0,0,.5);margin-bottom:22px}
+  .hero .par{color:var(--laiton);font-weight:700;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:46px;line-height:1.08}
+  .hero p.lead{max-width:640px;margin:18px auto 0;font-size:18px;color:#CBD8E6}
+  @media(max-width:640px){.hero h1{font-size:33px}.hero p.lead{font-size:16px}}
+
+  .etat{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:rgba(216,180,95,.12);
+        border:1px solid rgba(216,180,95,.4);color:var(--laiton);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600}
+  .etat .pastille{width:8px;height:8px;border-radius:50%;background:var(--laiton)}
+
+  .stores{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .store{display:inline-flex;flex-direction:column;align-items:flex-start;background:rgba(255,255,255,.07);
+         color:#fff;border:1px solid rgba(255,255,255,.22);padding:11px 20px;border-radius:13px;
+         text-decoration:none;font-size:15px;font-weight:700;line-height:1.25}
+  .store small{font-weight:500;font-size:11.5px;color:var(--muted);letter-spacing:.4px}
+
+  section{padding:66px 0;border-top:1px solid var(--bord)}
+  .eyebrow{color:var(--laiton);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  section h2{font-size:31px;margin:9px 0 10px}
+  section .sub{color:var(--muted);max-width:62ch}
+
+  .etapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:1px;background:var(--bord);
+          border:1px solid var(--bord);border-radius:14px;overflow:hidden;margin-top:30px}
+  .etape{background:var(--carte);padding:22px 20px}
+  .etape .n{font-family:"Public Sans";font-size:12px;font-weight:700;color:var(--laiton);letter-spacing:1.6px}
+  .etape h3{font-size:18px;margin:8px 0 7px}
+  .etape p{font-size:14.5px;color:var(--muted)}
+
+  .cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:16px;margin-top:30px}
+  .carte{background:var(--carte);border:1px solid var(--bord);border-radius:14px;padding:22px}
+  .carte .em{font-size:24px}
+  .carte h3{font-size:18px;margin:10px 0 8px}
+  .carte p{font-size:14.5px;color:var(--muted)}
+
+  .secu{background:var(--carte);border:1px solid var(--bord);border-left:4px solid var(--ok);
+        border-radius:0 14px 14px 0;padding:24px 26px;margin-top:28px}
+  .secu p{color:#CBD8E6;font-size:15.5px}
+  .secu p + p{margin-top:12px}
+
+  .prix{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px;margin-top:30px}
+  .offre{background:var(--carte);border:1px solid var(--bord);border-radius:16px;padding:26px}
+  .offre.pro{border-color:var(--laiton-2);box-shadow:0 0 0 1px rgba(216,180,95,.25)}
+  .offre .nom{font-weight:700;font-size:15px;letter-spacing:.4px}
+  .offre .montant{font-family:Spectral,serif;font-size:38px;margin:8px 0 4px}
+  .offre .note{color:var(--muted);font-size:13.5px;margin-bottom:16px}
+  .offre ul{list-style:none;font-size:14.5px}
+  .offre li{padding:7px 0;border-top:1px solid var(--bord);color:#CBD8E6}
+  .offre li:first-child{border-top:0}
+  .offre li b{color:var(--laiton)}
+
+  .jalons{margin-top:28px;border:1px solid var(--bord);border-radius:14px;overflow:hidden}
+  .jalon{display:flex;align-items:center;gap:14px;padding:13px 18px;background:var(--carte);border-top:1px solid var(--bord);font-size:15px}
+  .jalon:first-child{border-top:0}
+  .jalon .badge{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700}
+  .jalon.fait .badge{background:rgba(74,222,128,.16);color:var(--ok)}
+  .jalon.suite .badge{background:rgba(157,176,196,.14);color:var(--muted)}
+  .jalon.suite{color:var(--muted)}
+
+  footer{border-top:1px solid var(--bord);padding:44px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+  footer a{color:var(--laiton);text-decoration:none}
+  footer .marque{font-weight:700;letter-spacing:5px;color:var(--texte);margin-bottom:6px}
+  footer nav{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:16px 0 20px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <img src="assets/icon.png" alt="SafeCoon">
+  <div class="brand">SafeCoon<small data-i18n="brand.by">par Bengacoon</small></div>
+  <nav>
+    <a href="#fonctions" data-i18n="nav.fonctions">Fonctions</a>
+    <a href="#securite" data-i18n="nav.securite">Sécurité</a>
+    <a href="#prix" data-i18n="nav.prix">Tarif</a>
+    <a href="securite.html" data-i18n="nav.technique">Note technique</a>
+    <select id="langue" aria-label="Langue"></select>
+  </nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <img class="logo" src="assets/icon.png" alt="">
+  <p class="par" data-i18n="brand.by">par Bengacoon</p>
+  <h1 data-i18n="hero.h1">Vos papiers, en sécurité<br>et retrouvables</h1>
+  <p class="lead" data-i18n="hero.lead">Photographiez une facture. SafeCoon la comprend, la chiffre sur votre appareil et la classe. Des années plus tard, vous demandez « la garantie de ma perceuse ? » et vous l'avez.</p>
+  <div class="etat"><span class="pastille"></span><span data-i18n="hero.etat">Application en cours de développement</span></div>
+  <div class="stores">
+    <a class="store" href="#jalons"><small data-i18n="store.bientot">Bientôt sur</small>App&nbsp;Store</a>
+    <a class="store" href="#jalons"><small data-i18n="store.bientot">Bientôt sur</small>Google&nbsp;Play</a>
+    <a class="store" href="#jalons"><small data-i18n="store.bientot">Bientôt</small>APK&nbsp;Android</a>
+  </div>
+</div></div>
+
+<section id="fonctions"><div class="wrap">
+  <p class="eyebrow" data-i18n="etapes.eyebrow">Comment ça marche</p>
+  <h2 data-i18n="etapes.h2">Cinq gestes, dont un seul est le vôtre</h2>
+  <p class="sub" data-i18n="etapes.sub">Le produit ne se juge pas sur son stockage, mais sur le temps entre la photo et le document rangé.</p>
+  <div class="etapes">
+    <div class="etape"><div class="n">01</div><h3 data-i18n="etape.1.h">Vous photographiez</h3><p data-i18n="etape.1.p">Une facture, un contrat, une notice. Ou vous partagez un PDF reçu par courriel.</p></div>
+    <div class="etape"><div class="n">02</div><h3 data-i18n="etape.2.h">L'app comprend</h3><p data-i18n="etape.2.p">Type, fournisseur, produit, date, montant, garantie — lus sur l'appareil.</p></div>
+    <div class="etape"><div class="n">03</div><h3 data-i18n="etape.3.h">Vous confirmez</h3><p data-i18n="etape.3.p">Chaque champ montre sa fiabilité. Un champ incertain arrive vide, jamais rempli au hasard.</p></div>
+    <div class="etape"><div class="n">04</div><h3 data-i18n="etape.4.h">C'est chiffré et classé</h3><p data-i18n="etape.4.p">La garantie est créée, les rappels d'échéance sont posés.</p></div>
+    <div class="etape"><div class="n">05</div><h3 data-i18n="etape.5.h">Vous retrouvez</h3><p data-i18n="etape.5.p">« Facture perceuse Bosch » — même sans réseau, même trois ans plus tard.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow" data-i18n="cartes.eyebrow">Ce que ça vous évite</p>
+  <h2 data-i18n="cartes.h2">Les papiers qu'on cherche toujours trop tard</h2>
+  <div class="cartes">
+    <div class="carte"><div class="em">🛡️</div><h3 data-i18n="carte.garanties.h">Garanties</h3><p data-i18n="carte.garanties.p">La date de fin est calculée et notifiée 30, 15 et 7 jours avant. Un lave-linge qui tombe en panne le bon mois, ce sont quelques centaines d'euros.</p></div>
+    <div class="carte"><div class="em">📑</div><h3 data-i18n="carte.contrats.h">Contrats et préavis</h3><p data-i18n="carte.contrats.p">La seule date qui fait vraiment économiser : la limite pour résilier avant reconduction.</p></div>
+    <div class="carte"><div class="em">🏷️</div><h3 data-i18n="carte.etiquettes.h">Étiquettes à coller</h3><p data-i18n="carte.etiquettes.p">Imprimez une planche de QR codes, collez-les sur la chaudière ou la box. Un scan ouvre la facture, la notice et le dernier entretien — hors ligne.</p></div>
+    <div class="carte"><div class="em">🔎</div><h3 data-i18n="carte.recherche.h">Une recherche qui comprend</h3><p data-i18n="carte.recherche.p">« Machine à laver » trouve « lave-linge ». « Bosh » trouve « Bosch ». Sans exiger les mots exacts du document.</p></div>
+  </div>
+</div></section>
+
+<section id="securite"><div class="wrap">
+  <p class="eyebrow" data-i18n="secu.eyebrow">Sécurité</p>
+  <h2 data-i18n="secu.h2">Personne ne peut ouvrir votre coffre. Nous non plus.</h2>
+  <div class="secu">
+    <p data-i18n="secu.p1">Vos documents sont chiffrés <b>sur votre appareil</b>, avec des algorithmes standard et publiquement analysés — jamais une cryptographie maison. La clé se déduit de votre mot de passe, que nous ne connaissons pas et ne pouvons pas retrouver.</p>
+    <p data-i18n="secu.p2">C'est aussi la contrepartie, et nous la disons franchement : <b>sans votre mot de passe ni votre code de récupération, vos documents sont définitivement illisibles</b>. C'est pourquoi l'application vous fait noter ce code, et vous en redemande trois mots, avant de vous laisser ranger le premier papier.</p>
+    <p data-i18n="secu.p3">L'analyse des documents se fait sur le téléphone. Aucune image, aucun fichier n'est envoyé à un service d'intelligence artificielle. Aucune publicité, aucune télémétrie.</p>
+    <p><a href="securite.html" style="color:var(--laiton);font-weight:600" data-i18n="secu.lien">Lire la note technique complète, y compris ce que nous ne pouvons pas garantir →</a></p>
+  </div>
+</div></section>
+
+<section id="prix"><div class="wrap">
+  <p class="eyebrow" data-i18n="prix.eyebrow">Tarif</p>
+  <h2 data-i18n="prix.h2">Gratuit pour commencer, un seul achat ensuite</h2>
+  <p class="sub" data-i18n="prix.sub">Pas d'abonnement. L'achat est unique et vaut à vie, mises à jour comprises.</p>
+  <div class="prix">
+    <div class="offre">
+      <div class="nom" data-i18n="prix.gratuit">GRATUIT</div>
+      <div class="montant">0 €</div>
+      <div class="note" data-i18n="prix.gratuit.note">Pour essayer sérieusement.</div>
+      <ul>
+        <li><b>50</b> <span data-i18n="prix.docs">documents</span></li>
+        <li data-i18n="prix.f.scan">Scanner, lecture automatique, classement</li>
+        <li data-i18n="prix.f.garanties">Garanties, contrats et rappels</li>
+        <li data-i18n="prix.f.recherche">Recherche et étiquettes QR</li>
+      </ul>
+    </div>
+    <div class="offre pro">
+      <div class="nom" style="color:var(--laiton)" data-i18n="prix.premium">PREMIUM</div>
+      <div class="montant">7,90 €</div>
+      <div class="note" data-i18n="prix.premium.note">Une fois. Pas par mois.</div>
+      <ul>
+        <li><b data-i18n="prix.illimite">Documents illimités</b></li>
+        <li data-i18n="prix.f.sauvegarde">Sauvegarde chiffrée et restauration</li>
+        <li data-i18n="prix.f.export">Exports PDF, ZIP, JSON, CSV, Excel</li>
+        <li data-i18n="prix.f.sync">Synchronisation entre vos appareils <span style="color:var(--muted)" data-i18n="prix.plustard">(plus tard)</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="jalons"><div class="wrap">
+  <p class="eyebrow" data-i18n="jalons.eyebrow">Avancement</p>
+  <h2 data-i18n="jalons.h2">Où en est le développement</h2>
+  <p class="sub" data-i18n="jalons.sub">Cette page est publiée avant l'application, volontairement : elle dit ce qui existe et ce qui n'existe pas encore.</p>
+  <div class="jalons">
+    <div class="jalon fait"><span class="badge">✓</span><span data-i18n="jalon.0">Fondations cryptographiques, vérifiées sur téléphone</span></div>
+    <div class="jalon fait"><span class="badge">✓</span><span data-i18n="jalon.1">Application, thème clair et sombre, 9 langues</span></div>
+    <div class="jalon fait"><span class="badge">✓</span><span data-i18n="jalon.2">Le coffre : mot de passe, code de récupération, PIN, biométrie</span></div>
+    <div class="jalon suite"><span class="badge">3</span><span data-i18n="jalon.3">Documents : import, chiffrement, catégories</span></div>
+    <div class="jalon suite"><span class="badge">4</span><span data-i18n="jalon.4">Scanner, lecture automatique et validation</span></div>
+    <div class="jalon suite"><span class="badge">5</span><span data-i18n="jalon.5">Recherche</span></div>
+    <div class="jalon suite"><span class="badge">6</span><span data-i18n="jalon.6">Garanties, biens et étiquettes QR</span></div>
+    <div class="jalon suite"><span class="badge">7</span><span data-i18n="jalon.7">Sauvegarde, exports et achat</span></div>
+    <div class="jalon suite"><span class="badge">8</span><span data-i18n="jalon.8">Publication : App Store, Google Play, APK</span></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="marque">SAFECOON</div>
+  <div data-i18n="brand.by">par Bengacoon</div>
+  <nav>
+    <a href="privacy.html" data-i18n="foot.privacy">Confidentialité</a>
+    <a href="securite.html" data-i18n="foot.securite">Note technique</a>
+    <a href="mailto:jdviallat@gmail.com" data-i18n="foot.contact">Contact</a>
+    <a href="https://jdviallat.github.io/bengacoon-apps-site/" data-i18n="foot.gamme">Les autres applications</a>
+  </nav>
+  <div style="font-size:13px" data-i18n="foot.legal">SafeCoon est une application de rangement de documents. Elle ne remplace ni un notaire, ni un coffre-fort à valeur probante.</div>
+</div></footer>
+
+<script src="i18n.js"></script>
+<script>
+(function () {
+  var LANGUES = { fr:"Français", en:"English", de:"Deutsch", it:"Italiano", pt:"Português",
+                  es:"Español", sv:"Svenska", no:"Norsk", fi:"Suomi" };
+  var sel = document.getElementById("langue");
+  Object.keys(LANGUES).forEach(function (k) {
+    var o = document.createElement("option"); o.value = k; o.textContent = LANGUES[k]; sel.appendChild(o);
+  });
+
+  function appliquer(lang) {
+    var dico = (typeof DICT !== "undefined" && DICT[lang]) || {};
+    var base = (typeof DICT !== "undefined" && DICT.fr) || {};
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var cle = el.getAttribute("data-i18n");
+      // Une clé absente retombe sur le français, jamais sur la clé nue.
+      var val = dico[cle] !== undefined ? dico[cle] : base[cle];
+      if (val === undefined) return;
+      var attr = el.getAttribute("data-i18n-attr");
+      if (attr) el.setAttribute(attr, val);
+      else if (cle === "meta.title") document.title = val;
+      else el.innerHTML = val;
+    });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem("safecoon.langue", lang); } catch (e) {}
+    sel.value = lang;
+  }
+
+  var choisie = null;
+  try { choisie = localStorage.getItem("safecoon.langue"); } catch (e) {}
+  if (!choisie) {
+    var nav = (navigator.language || "fr").slice(0, 2).toLowerCase();
+    if (nav === "nb" || nav === "nn") nav = "no";
+    choisie = LANGUES[nav] ? nav : "fr";
+  }
+  appliquer(choisie);
+  sel.addEventListener("change", function () { appliquer(sel.value); });
+})();
+</script>
+</body>
+</html>
