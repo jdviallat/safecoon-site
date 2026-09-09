@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suivi du développement — SafeCoon</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+  :root{--nuit:#0E1B2A;--carte:#152436;--bord:#22344A;--laiton:#D8B45F;--texte:#E9EFF6;--muted:#9DB0C4;--ok:#4ADE80;--danger:#F0808E}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+       color:var(--texte);background:var(--nuit);line-height:1.65}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  a{color:var(--laiton)}
+  .devband{background:#F39C12;color:#3A2703;text-align:center;font-weight:800;
+           font-size:13.5px;padding:9px 16px;letter-spacing:.3px}
+  header{border-bottom:1px solid var(--bord)}
+  header .wrap{display:flex;align-items:center;gap:12px;height:64px}
+  header img{width:34px;height:34px;border-radius:9px}
+  header .brand{font-weight:700;font-size:18px;text-decoration:none;color:var(--texte)}
+  header .retour{margin-left:auto;font-size:14px;font-weight:600;text-decoration:none}
+  h1{font-family:Spectral,Georgia,serif;font-size:34px;margin:44px 0 8px;letter-spacing:-.01em}
+  .maj{color:var(--muted);font-size:14px;margin-bottom:30px}
+  h2{font-family:Spectral,Georgia,serif;font-size:22px;margin:34px 0 10px}
+  h3{font-size:16px;margin:22px 0 6px}
+  p,li{color:#CBD8E6;font-size:15.5px}
+  p{margin:0 0 13px}
+  ul{margin:0 0 14px 20px}
+  li{margin-bottom:6px}
+  .encadre{background:var(--carte);border:1px solid var(--bord);border-left:4px solid var(--laiton);
+           border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0}
+  .encadre.rouge{border-left-color:var(--danger)}
+  .encadre.vert{border-left-color:var(--ok)}
+  .encadre p:last-child{margin-bottom:0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;
+        background:var(--carte);border:1px solid var(--bord);border-radius:12px;overflow:hidden}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--bord);vertical-align:top}
+  th{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;color:var(--laiton)}
+  footer{border-top:1px solid var(--bord);margin-top:56px;padding:30px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="assets/icon.png" alt=""><a class="brand" href="index.html">SafeCoon</a>
+  <a class="retour" href="index.html">← Retour</a>
+</div></header>
+<div class="devband">En cours de développement — ce site présente une application à venir</div>
+<div class="wrap">
+<h1>Suivi du développement</h1>
+<p class="maj">Mis à jour le 9 septembre 2026 · version en cours : <b>0.4.0</b> · 123 tests automatiques</p>
+
+<div class="encadre">
+  <p>Cette page dit où en est réellement SafeCoon : ce qui fonctionne, ce qui
+  n'existe pas encore, et ce qui a été <b>vérifié sur un vrai téléphone</b> plutôt
+  que simplement écrit. Une barre de progression qui n'avance jamais ne trompe
+  personne bien longtemps ; autant publier le détail.</p>
+</div>
+
+<h2>Les lots</h2>
+<table>
+  <tr><th style="width:64px">Lot</th><th>Ce qu'il apporte</th><th style="width:104px">État</th></tr>
+  <tr><td><b>0</b></td><td><b>Fondations cryptographiques.</b> Chiffrement des fichiers par blocs, hiérarchie de clés, vérification sur appareil réel.</td><td><span class="ok">✅ livré</span></td></tr>
+  <tr><td><b>1</b></td><td><b>Squelette de l'application.</b> Thème clair et sombre, taille de texte réglable, interface en 9 langues, base locale.</td><td><span class="ok">✅ livré</span></td></tr>
+  <tr><td><b>2</b></td><td><b>Le coffre.</b> Mot de passe, code de récupération de 12 mots imposé, code PIN, biométrie, verrouillage automatique.</td><td><span class="ok">✅ livré</span></td></tr>
+  <tr><td><b>3</b></td><td><b>Les documents.</b> Import d'une photo ou d'un fichier, chiffrement, détection des doublons, corbeille de 30 jours.</td><td><span class="ok">✅ livré</span></td></tr>
+  <tr><td><b>4</b></td><td><b>Scanner et lecture automatique.</b> Cadrage, correction de perspective, reconnaissance de texte, écran de validation.</td><td>à venir</td></tr>
+  <tr><td><b>5</b></td><td><b>Recherche.</b> Plein texte, synonymes français, tolérance aux fautes, dossiers intelligents.</td><td>à venir</td></tr>
+  <tr><td><b>6</b></td><td><b>Garanties et étiquettes.</b> Fiches de biens, codes-barres, planches de QR codes à imprimer, rappels d'échéance.</td><td>à venir</td></tr>
+  <tr><td><b>7</b></td><td><b>Exports et achat.</b> PDF, ZIP, JSON, CSV, Excel, et l'achat intégré.</td><td>partiel</td></tr>
+  <tr><td><b>8</b></td><td><b>Publication.</b> App Store, Google Play, APK public.</td><td>à venir</td></tr>
+</table>
+
+<h2>Ce qui fonctionne déjà</h2>
+<ul>
+  <li>Créer un coffre protégé par mot de passe, avec mesure de robustesse.</li>
+  <li>Le <b>code de récupération de 12 mots</b>, imposé et vérifié avant le premier document.</li>
+  <li>Ouvrir le coffre par mot de passe, code PIN, biométrie ou code de récupération.</li>
+  <li>Verrouillage automatique en arrière-plan, réglable de « immédiat » à « jamais ».</li>
+  <li>Importer une photo ou un fichier : il est chiffré <b>avant</b> d'être écrit sur le disque.</li>
+  <li>Détection des doublons — signalés, jamais fusionnés tout seuls.</li>
+  <li>Corbeille de 30 jours, avec restauration et suppression définitive.</li>
+  <li><b>Sauvegarde chiffrée</b> : exporter, déposer où l'on veut, restaurer sur un autre téléphone.</li>
+  <li>Interface en 9 langues, thème clair et sombre, quatre tailles de texte.</li>
+</ul>
+
+<h2>Ce qui n'existe pas encore</h2>
+<ul>
+  <li>Le <b>scanner</b> et la lecture automatique des factures — c'est le cœur de la promesse, et c'est le prochain lot.</li>
+  <li>La <b>recherche</b> : aujourd'hui la liste s'affiche, mais on ne peut pas encore interroger le coffre.</li>
+  <li>Les <b>garanties</b>, les fiches de biens et les étiquettes QR.</li>
+  <li>L'<b>import depuis le partage système</b> (« Partager → SafeCoon » depuis un courriel), qui sera pourtant le moyen le plus courant de remplir le coffre.</li>
+  <li>La <b>synchronisation</b> entre appareils, et le partage familial.</li>
+  <li>L'<b>achat intégré</b> : la licence fonctionne hors magasin, l'achat App Store et Google Play viendra avec la publication.</li>
+</ul>
+
+<h2>Ce qui a été vérifié sur un appareil</h2>
+<p>Une fonction « écrite » et une fonction « vue fonctionner » ne sont pas la même chose. Distinguer les deux :</p>
+<table>
+  <tr><th>Vérifié sur téléphone</th><th>Vérifié par les tests seulement</th></tr>
+  <tr>
+    <td>
+      Chiffrement et déchiffrement d'un fichier de 60 Mo · création du coffre ·
+      code de récupération et sa vérification · déverrouillage par mot de passe ·
+      verrouillage · réglages conservés après réinstallation ·
+      un fichier chiffré sur ordinateur rouvert sur le téléphone <b>à l'octet près</b>
+    </td>
+    <td>
+      Import et corbeille des documents · détection des doublons ·
+      format de sauvegarde (troncature, octet modifié, mauvaise phrase de passe) ·
+      licences · calcul des échéances · recherche française
+    </td>
+  </tr>
+</table>
+
+<h2>Deux chiffres qui comptent</h2>
+<table>
+  <tr><th>Ce qu'on mesure</th><th>Cible</th><th>Aujourd'hui</th></tr>
+  <tr><td>Temps entre la photo et le document rangé</td><td>moins de 15 secondes</td><td>pas encore mesurable (lot 4)</td></tr>
+  <tr><td>Le bon document dans les 3 premiers résultats</td><td>9 fois sur 10</td><td>pas encore mesurable (lot 5)</td></tr>
+</table>
+<p>Tant que ces deux chiffres ne sont pas atteints, l'application n'est pas prête à être publiée — quel que soit le nombre de fonctions cochées plus haut.</p>
+
+<div class="encadre">
+  <p>Une question, une remarque, une idée ? <a href="mailto:jdviallat@gmail.com">jdviallat@gmail.com</a></p>
+</div>
+</div>
+<footer><div class="wrap">SafeCoon — par Bengacoon · <a href="mailto:jdviallat@gmail.com">jdviallat@gmail.com</a></div></footer>
+</body>
+</html>
