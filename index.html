@@ -26,6 +26,10 @@
   .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
   h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:600;letter-spacing:-.01em}
 
+  /* Bandeau statut — identique à celui de Bengacoon 360 */
+  .devband{background:#F39C12;color:#3A2703;text-align:center;font-weight:800;
+           font-size:13.5px;padding:9px 16px;letter-spacing:.3px}
+
   header{position:sticky;top:0;z-index:20;background:rgba(14,27,42,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--bord)}
   header .wrap{display:flex;align-items:center;gap:12px;height:64px}
   header img{width:36px;height:36px;border-radius:10px}
@@ -45,9 +49,6 @@
   .hero p.lead{max-width:640px;margin:18px auto 0;font-size:18px;color:#CBD8E6}
   @media(max-width:640px){.hero h1{font-size:33px}.hero p.lead{font-size:16px}}
 
-  .etat{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:rgba(216,180,95,.12);
-        border:1px solid rgba(216,180,95,.4);color:var(--laiton);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600}
-  .etat .pastille{width:8px;height:8px;border-radius:50%;background:var(--laiton)}
 
   .stores{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
   .store{display:inline-flex;flex-direction:column;align-items:flex-start;background:rgba(255,255,255,.07);
@@ -117,12 +118,13 @@
   </nav>
 </div></header>
 
+<div class="devband" data-i18n="devband"></div>
+
 <div class="hero"><div class="wrap">
   <img class="logo" src="assets/icon.png" alt="">
   <p class="par" data-i18n="brand.by">par Bengacoon</p>
   <h1 data-i18n="hero.h1">Vos papiers, en sécurité<br>et retrouvables</h1>
   <p class="lead" data-i18n="hero.lead">Photographiez une facture. SafeCoon la comprend, la chiffre sur votre appareil et la classe. Des années plus tard, vous demandez « la garantie de ma perceuse ? » et vous l'avez.</p>
-  <div class="etat"><span class="pastille"></span><span data-i18n="hero.etat">Application en cours de développement</span></div>
   <div class="stores">
     <a class="store" href="#jalons"><small data-i18n="store.bientot">Bientôt sur</small>App&nbsp;Store</a>
     <a class="store" href="#jalons"><small data-i18n="store.bientot">Bientôt sur</small>Google&nbsp;Play</a>
