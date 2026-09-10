@@ -51,7 +51,7 @@
 <div class="devband">En cours de développement — ce site présente une application à venir</div>
 <div class="wrap">
 <h1>Suivi du développement</h1>
-<p class="maj">Mis à jour le 9 septembre 2026 · version en cours : <b>0.4.0</b> · 123 tests automatiques</p>
+<p class="maj">Mis à jour le 10 septembre 2026 · version en cours : <b>0.6.1</b> · 159 tests automatiques</p>
 
 <div class="encadre">
   <p>Cette page dit où en est réellement SafeCoon : ce qui fonctionne, ce qui
@@ -67,12 +67,17 @@
   <tr><td><b>1</b></td><td><b>Squelette de l'application.</b> Thème clair et sombre, taille de texte réglable, interface en 9 langues, base locale.</td><td><span class="ok">✅ livré</span></td></tr>
   <tr><td><b>2</b></td><td><b>Le coffre.</b> Mot de passe, code de récupération de 12 mots imposé, code PIN, biométrie, verrouillage automatique.</td><td><span class="ok">✅ livré</span></td></tr>
   <tr><td><b>3</b></td><td><b>Les documents.</b> Import d'une photo ou d'un fichier, chiffrement, détection des doublons, corbeille de 30 jours.</td><td><span class="ok">✅ livré</span></td></tr>
-  <tr><td><b>4</b></td><td><b>Scanner et lecture automatique.</b> Cadrage, correction de perspective, reconnaissance de texte, écran de validation.</td><td>à venir</td></tr>
-  <tr><td><b>5</b></td><td><b>Recherche.</b> Plein texte, synonymes français, tolérance aux fautes, dossiers intelligents.</td><td>à venir</td></tr>
-  <tr><td><b>6</b></td><td><b>Garanties et étiquettes.</b> Fiches de biens, codes-barres, planches de QR codes à imprimer, rappels d'échéance.</td><td>à venir</td></tr>
-  <tr><td><b>7</b></td><td><b>Exports et achat.</b> PDF, ZIP, JSON, CSV, Excel, et l'achat intégré.</td><td>partiel</td></tr>
+  <tr><td><b>4</b></td><td><b>Scanner et lecture automatique.</b> Cadrage, reconnaissance de texte sur l'appareil, extraction des dates, montants et références, écran de validation.</td><td><span class="ok">✅ livré</span></td></tr>
+  <tr><td><b>5</b></td><td><b>Recherche.</b> Plein texte, synonymes français (« machine à laver » trouve « lave-linge »), tolérance aux fautes, quatre dossiers intelligents.</td><td><span class="ok">✅ livré</span></td></tr>
+  <tr><td><b>6</b></td><td><b>Échéances et étiquettes.</b> Garanties, assurances, contrats, impôts et taxes, abonnements — au même endroit, en personnel ou en professionnel. Rappels 30 / 15 / 7 jours avant. Étiquettes QR et planche A4 à imprimer.</td><td><span class="ok">✅ livré</span></td></tr>
+  <tr><td><b>7</b></td><td><b>Exports.</b> Relevé PDF, tableaux CSV, données brutes JSON. L'achat intégré arrive avec la publication.</td><td><span class="ok">✅ livré</span></td></tr>
   <tr><td><b>8</b></td><td><b>Publication.</b> App Store, Google Play, APK public.</td><td>à venir</td></tr>
 </table>
+
+<h2>Où en est le développement</h2>
+<p><b>Sept lots sur huit sont livrés</b>, et vérifiés sur un appareil. Il reste
+la publication sur les magasins — et deux chiffres à atteindre avant, plus bas
+sur cette page.</p>
 
 <h2>Ce qui fonctionne déjà</h2>
 <ul>
@@ -84,17 +89,26 @@
   <li>Détection des doublons — signalés, jamais fusionnés tout seuls.</li>
   <li>Corbeille de 30 jours, avec restauration et suppression définitive.</li>
   <li><b>Sauvegarde chiffrée</b> : exporter, déposer où l'on veut, restaurer sur un autre téléphone.</li>
+  <li><b>Photographier un document</b> : cadrage, lecture du texte sur l'appareil, extraction de la date, du montant et des références, puis un écran de validation où l'on corrige.</li>
+  <li><b>Chercher en langage courant</b>, avec les synonymes et les fautes de frappe pardonnées.</li>
+  <li><b>Les échéances</b> : garanties, assurances, contrats, impôts et taxes, abonnements. Un même écran, parce que la question posée est la même : qu'est-ce qui arrive à terme ?</li>
+  <li>Un périmètre <b>personnel ou professionnel</b> sur chaque engagement, pour ceux qui ont aussi une activité.</li>
+  <li>Les <b>coordonnées de l'organisme</b>, dont le numéro d'urgence — celui qu'on cherche un dimanche soir, après un dégât des eaux.</li>
+  <li>La <b>date limite pour résilier</b>, et non seulement celle de l'échéance : être prévenu le jour même, c'est être prévenu trop tard.</li>
+  <li>Des <b>rappels 30, 15 et 7 jours avant</b>, sur le téléphone uniquement — nos serveurs ne savent rien de vos échéances, donc ils ne peuvent rien envoyer.</li>
+  <li>Des <b>étiquettes QR</b> à coller sur les objets, avec une planche A4 à imprimer. Le QR ne contient qu'un identifiant, illisible sans votre coffre.</li>
+  <li>Des <b>exports</b> PDF, CSV et JSON, pour partir avec ses données ou les donner à un comptable.</li>
   <li>Interface en 9 langues, thème clair et sombre, quatre tailles de texte.</li>
 </ul>
 
 <h2>Ce qui n'existe pas encore</h2>
 <ul>
-  <li>Le <b>scanner</b> et la lecture automatique des factures — c'est le cœur de la promesse, et c'est le prochain lot.</li>
-  <li>La <b>recherche</b> : aujourd'hui la liste s'affiche, mais on ne peut pas encore interroger le coffre.</li>
-  <li>Les <b>garanties</b>, les fiches de biens et les étiquettes QR.</li>
+  <li>Le <b>taux de lecture réel des factures</b> n'est pas encore mesuré : la reconnaissance de texte fonctionne et a déjà lu de vraies dates sur un écran, mais il faut un lot de factures variées pour donner un chiffre honnête.</li>
   <li>L'<b>import depuis le partage système</b> (« Partager → SafeCoon » depuis un courriel), qui sera pourtant le moyen le plus courant de remplir le coffre.</li>
   <li>La <b>synchronisation</b> entre appareils, et le partage familial.</li>
+  <li>La <b>lecture des codes-barres</b> pour retrouver un produit par son EAN.</li>
   <li>L'<b>achat intégré</b> : la licence fonctionne hors magasin, l'achat App Store et Google Play viendra avec la publication.</li>
+  <li>La <b>version iPhone</b> : le code est commun, mais elle n'a pas encore été compilée ni vue tourner.</li>
 </ul>
 
 <h2>Ce qui a été vérifié sur un appareil</h2>
@@ -106,12 +120,18 @@
       Chiffrement et déchiffrement d'un fichier de 60 Mo · création du coffre ·
       code de récupération et sa vérification · déverrouillage par mot de passe ·
       verrouillage · réglages conservés après réinstallation ·
-      un fichier chiffré sur ordinateur rouvert sur le téléphone <b>à l'octet près</b>
+      un fichier chiffré sur ordinateur rouvert sur le téléphone <b>à l'octet près</b> ·
+      import et corbeille des documents · détection des doublons ·
+      photographie d'un document et lecture de son texte · recherche ·
+      calcul de la date de résiliation et de la fin de garantie ·
+      rappels réellement programmés dans le système ·
+      étiquette QR affichée · relevé PDF produit et partagé ·
+      licence saisie et acceptée
     </td>
     <td>
-      Import et corbeille des documents · détection des doublons ·
-      format de sauvegarde (troncature, octet modifié, mauvaise phrase de passe) ·
-      licences · calcul des échéances · recherche française
+      Format de sauvegarde (troncature, octet modifié, mauvaise phrase de passe) ·
+      neutralisation des formules de tableur dans les exports CSV ·
+      normalisation et synonymes de la recherche française
     </td>
   </tr>
 </table>
@@ -119,8 +139,8 @@
 <h2>Deux chiffres qui comptent</h2>
 <table>
   <tr><th>Ce qu'on mesure</th><th>Cible</th><th>Aujourd'hui</th></tr>
-  <tr><td>Temps entre la photo et le document rangé</td><td>moins de 15 secondes</td><td>pas encore mesurable (lot 4)</td></tr>
-  <tr><td>Le bon document dans les 3 premiers résultats</td><td>9 fois sur 10</td><td>pas encore mesurable (lot 5)</td></tr>
+  <tr><td>Temps entre la photo et le document rangé</td><td>moins de 15 secondes</td><td>la chaîne fonctionne ; reste à chronométrer sur de vraies factures</td></tr>
+  <tr><td>Le bon document dans les 3 premiers résultats</td><td>9 fois sur 10</td><td>la recherche fonctionne ; le taux demande un corpus réel</td></tr>
 </table>
 <p>Tant que ces deux chiffres ne sont pas atteints, l'application n'est pas prête à être publiée — quel que soit le nombre de fonctions cochées plus haut.</p>
 
