@@ -1,7 +1,7 @@
 {
-  "version": "0.6.1",
+  "version": "0.7.0",
   "url": "https://github.com/jdviallat/safecoon/releases/latest",
-  "notes": "Échéances : garanties, assurances, contrats, impôts et abonnements au même endroit, en personnel ou en professionnel. Numéro d'urgence de l'organisme. Date limite pour résilier, rappels 30/15/7 jours avant. Étiquettes QR et planche A4. Exports CSV, JSON et PDF.",
+  "notes": "Les relations entre vos papiers, vos biens et vos contrats. Les dépenses, et « combien m'a coûté ceci ? ». Véhicules, logements, entretiens qui reviennent avec un rappel avant. Vos corrections sont conservées. Vérification de mise à jour.",
   "obligatoire": false,
   "minVersion": "0.1.0"
 }
