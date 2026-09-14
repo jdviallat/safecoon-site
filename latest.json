@@ -1,7 +1,7 @@
 {
-  "version": "0.8.0",
+  "version": "0.9.0",
   "url": "https://github.com/jdviallat/safecoon/releases/latest",
-  "notes": "« Partager → SafeCoon » depuis n'importe quelle application. Scan multi-pages : un seul PDF chiffré. Relations, dépenses, véhicules, entretiens, vérification de mise à jour.",
+  "notes": "Nouvelle navigation avec un bouton « + » central. La recherche trouve tout : un objet, sa facture, sa garantie. « À faire » classe garanties, contrats et entretiens par urgence. Écran de bienvenue.",
   "obligatoire": false,
   "minVersion": "0.1.0"
 }
