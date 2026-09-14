@@ -1,7 +1,7 @@
 {
-  "version": "0.7.0",
+  "version": "0.8.0",
   "url": "https://github.com/jdviallat/safecoon/releases/latest",
-  "notes": "Les relations entre vos papiers, vos biens et vos contrats. Les dépenses, et « combien m'a coûté ceci ? ». Véhicules, logements, entretiens qui reviennent avec un rappel avant. Vos corrections sont conservées. Vérification de mise à jour.",
+  "notes": "« Partager → SafeCoon » depuis n'importe quelle application. Scan multi-pages : un seul PDF chiffré. Relations, dépenses, véhicules, entretiens, vérification de mise à jour.",
   "obligatoire": false,
   "minVersion": "0.1.0"
 }
