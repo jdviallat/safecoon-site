@@ -1,7 +1,7 @@
 {
-  "version": "0.9.0",
+  "version": "0.10.0",
   "url": "https://github.com/jdviallat/safecoon/releases/latest",
-  "notes": "Nouvelle navigation avec un bouton « + » central. La recherche trouve tout : un objet, sa facture, sa garantie. « À faire » classe garanties, contrats et entretiens par urgence. Écran de bienvenue.",
+  "notes": "Un vrai logo. Identifier un objet par photo : code-barres, QR ou étiquette lus sur l'appareil, fiche pré-remplie. Cartes de fidélité et d'abonnement affichées à la caisse. Animaux : profil, carnet de santé, rappels. Catégories cliquables, fiche de document.",
   "obligatoire": false,
   "minVersion": "0.1.0"
 }
