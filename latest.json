@@ -1,7 +1,7 @@
 {
-  "version": "0.11.0",
+  "version": "0.12.0",
   "url": "https://github.com/jdviallat/safecoon/releases/latest",
-  "notes": "Écran protégé (captures bloquées, voile à l'arrière-plan), essais de mot de passe ralentis, export ZIP complet, échéances dans l'agenda (.ics).",
+  "notes": "Carnet de contacts : chaque organisme existe une fois (numéro d'urgence appelable d'un appui), personnes du foyer reliées aux papiers et aux assurances.",
   "obligatoire": false,
   "minVersion": "0.1.0"
 }
