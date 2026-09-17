@@ -1,7 +1,7 @@
 {
-  "version": "0.12.0",
+  "version": "0.13.0",
   "url": "https://github.com/jdviallat/safecoon/releases/latest",
-  "notes": "Carnet de contacts : chaque organisme existe une fois (numéro d'urgence appelable d'un appui), personnes du foyer reliées aux papiers et aux assurances.",
+  "notes": "Import en nombre : des dizaines de fichiers d'un coup, chiffrés immédiatement, lus cinq par cinq, validés d'un geste. Correction du verrouillage après un retour rapide.",
   "obligatoire": false,
   "minVersion": "0.1.0"
 }
