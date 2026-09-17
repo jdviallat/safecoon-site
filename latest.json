@@ -1,7 +1,7 @@
 {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "url": "https://github.com/jdviallat/safecoon/releases/latest",
-  "notes": "Un vrai logo. Identifier un objet par photo : code-barres, QR ou étiquette lus sur l'appareil, fiche pré-remplie. Cartes de fidélité et d'abonnement affichées à la caisse. Animaux : profil, carnet de santé, rappels. Catégories cliquables, fiche de document.",
+  "notes": "Écran protégé (captures bloquées, voile à l'arrière-plan), essais de mot de passe ralentis, export ZIP complet, échéances dans l'agenda (.ics).",
   "obligatoire": false,
   "minVersion": "0.1.0"
 }
